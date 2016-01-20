@@ -1,4 +1,4 @@
-var initialset = 20;
+var initialset = 8;
 
 var tumblr = {
 	key: '8c78771934d3245c13a7ca25966549fa',
@@ -12,7 +12,7 @@ var tumblr = {
 			{
 				method: method,
 				api_key:this.key,
-				per_page:initialset,
+				page:initialset,
 				format: 'json'	
 			}
 		).always(function(o) {

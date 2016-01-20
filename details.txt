@@ -1,0 +1,21 @@
+Assumption: photos will contain tags that might be somewhat similar to each other. We base our entire model on the assumption that similar photos will have similar tags. For example, a photo of a house might have the tags {house, land, building} while a barn might have the tags {barn, land, building}
+
+
+1. Create a similarity matrix
+	- make a unique bag of tags, with each word in the bag being unique.
+	- for each image, organize its tags into an array and compare it against the bag of tags
+	- count the number of times the words appear in the bag of tags, and convert it to a feature vector of the same length as the bag of tags
+	- example: bag_of_tags = {nature, tree, flowers} and the image has tags [nature, tree], then the feature vector will be [1,1,0]
+	- contruct matrix from all feature vectors generated from all images. This will be the matrix that will be fed into the clustering matrix
+
+2. Clustering tags
+	- Perform K-means clustering on similarity matrix. K should be decided beforehand
+	- These new clusters will be the features, or parameters, of the neural network 
+
+3. Training the neural network
+	- Once the user first initializes the application for the first time, the user will choose from 20 random photos and click if they like them or not
+	- each image will be matched to a cluster based off their tags (by comparing the tags to the tags of the cluster)
+	- training set will be fed into the neural network as the training data
+	- once the program 'learns' the parameters {x1, x2,...,xn} the program can now effectively predict if a user will like an image or not 
+
+4. 
